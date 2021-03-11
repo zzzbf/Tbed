@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.hellohao.dao.KeysMapper">
+
+
+    <!-- 查询对象存储key-->
+    <select id="selectKeys" parameterType="integer" resultType="cn.hellohao.pojo.Keys">
+        SELECT
+        *
+        FROM
+        `keys`
+        WHERE
+        storageType = #{storageType}
+    </select>
+
+    <update id="updateKey" parameterType="cn.hellohao.pojo.Keys">
+        UPDATE `keys`
+        SET AccessKey = #{AccessKey},
+        AccessSecret = #{AccessSecret},
+        Endpoint = #{Endpoint},
+        Bucketname = #{Bucketname},
+        RequestAddress = #{RequestAddress}
+        WHERE
+            storageType = #{storageType}
+    </update>
+</mapper>
